@@ -9,11 +9,16 @@ const Item = (props) => {
     }
     return (
     <div id={props.itemID} className={'grocery-item'}>
-      <img className={'grocery-item-img'}></img>
       <div className={'grocery-item-name'}>{props.itemName}</div>
+      <div className={'grocery-img-container'}>
+        <img src={'https://via.placeholder.com/150/FFFFFF'} className={'grocery-item-img'}></img>
+      </div>
       <input value={item} onChange={handleEditItem}/>
-      <Button action={() => props.edit(item, props.itemIndex)} text={'edit'}/>
-      <Button action={props.delete} text={'delete'}/>
+      <div className={'container-grocery-item-controls'}>
+        <Button action={() => props.edit(item, props.itemIndex)} text={'edit'} type={'btn-edit'}/>
+        <Button action={props.delete} text={'delete'} type={'btn-delete'}/>
+      </div>
+      
     </div>
     )
 }

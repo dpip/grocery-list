@@ -41,11 +41,14 @@ const GroceryList = (props) => {
     <>
         <div className={'create-grocery-control'}>
             <input value={newItem.name} onChange={handleNewItem} style={{marginBottom: '1rem'}}/>
-            <Button action={createItem} text={'Create a grocery'} type={'add-grocery'}/>
+            <Button action={createItem} text={'Add a grocery'} type={'btn-add'}/>
         </div>
-        {groceryListState.map((item, index) => {
-            return <Item key={index} itemIndex={index} itemID={item.id} itemName={item.name} edit={editItem} delete={() => deleteItem(index)}/>
-        })}
+        <h1 style={{width: '85%'}}>Your Groceries</h1>
+        <div className={'container-grocery-list'}>
+          {groceryListState.map((item, index) => {
+              return <Item key={index} itemIndex={index} itemID={item.id} itemName={item.name} edit={editItem} delete={() => deleteItem(index)}/>
+          })}
+        </div>
       </>
     )
 }
